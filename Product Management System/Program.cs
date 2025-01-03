@@ -13,13 +13,23 @@ namespace Product_Management_System
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAngularApp", policy =>
+                {
+                    policy.WithOrigins("http://localhost:4200") // Replace with your Angular app's URL
+                          .AllowAnyMethod()
+                          .AllowAnyHeader();
+                });
+            });
 
-           
+
             builder.Services.AddDbContext<ProductDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
             builder.Services.AddValidatorsFromAssemblyContaining<AddProductDtoValidation>();
 
             var app = builder.Build();
+            app.UseCors("AllowAngularApp");
 
             app.UseErrorHandlingMiddleware();
             var products = app.MapGroup("/products");
