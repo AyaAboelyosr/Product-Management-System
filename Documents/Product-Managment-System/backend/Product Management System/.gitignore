@@ -1,5 +1,21 @@
-.vs/
+# Ignore system files
 *.log
-bin/
-obj/
-                         
+*.dat
+*.blf
+*.regtrans-ms
+desktop.ini
+
+# Ignore user-specific configuration
+*.user
+
+# Ignore temporary or cache files
+.cache/
+.vscode/
+node_modules/
+*.zip
+
+# Ignore Windows directories
+AppData/
+My Documents/
+NTUSER.DAT*
+               
