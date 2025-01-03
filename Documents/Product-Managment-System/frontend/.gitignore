@@ -1,0 +1,21 @@
+# Exclude system files and directories
+Application Data/
+Cookies/
+Documents/
+Local Settings/
+My Documents/
+NetHood/
+PrintHood/
+Recent/
+SendTo/
+Start Menu/
+Templates/
+*.log
+ntuser.*
+
+# Exclude Visual Studio and Node.js-related files
+.vscode/
+node_modules/
+*.zip
+*.exe
+*.dll
